@@ -8,6 +8,8 @@ import com.example.retrofitcrashcourse.repository.Repository
 import kotlinx.coroutines.launch
 
 class MainViewModel(private val repository: Repository) : ViewModel() {
+    val myResponse : MutableLiveData<Post> = MutableLiveData()
+
     fun getPost() {
         val myResponse: MutableLiveData<Post> = MutableLiveData()
         viewModelScope.launch {

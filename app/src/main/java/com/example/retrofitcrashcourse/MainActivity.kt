@@ -32,10 +32,23 @@ class MainActivity : ComponentActivity() {
             viewModel = ViewModelProvider(this, viewModelFactory).get(MainViewModel::class.java)
             viewModel.getPost()
             viewModel.myResponse.observe(this, Observer { response ->
-             Log.d("Response", response.userId.toString())
-             Log.d("Response", response.id.toString())
-             Log.d("Response", response.title.toString())
-             Log.d("Response", response.body.toString())
+          /*      if (response.isSuccessful) {
+                    Log.d("Response", response.body()?.userId.toString())
+                    Log.d("Response", response.body()?.id.toString())
+                    textView.text = response.body()?.title!!
+                    Log.d("Response", response.body()?.body.toString())
+
+                }
+                else {
+                Log.d("response.", response.errorBody().toString())
+                    textView.text= response.code().toString()
+                }
+*/
+
+                Log.d("Response", response.userId.toString())
+                Log.d("Response", response.id.toString())
+                Log.d("Response", response.title.toString())
+                Log.d("Response", response.body.toString())
             })
         }
     }
